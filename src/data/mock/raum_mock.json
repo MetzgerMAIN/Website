@@ -1,0 +1,11 @@
+[
+  {"Id": 1, "Bezeichnung": "OG 101", "Stock": 1, "EDV": true},
+  {"Id": 2, "Bezeichnung": "OG 202", "Stock": 2, "EDV": false},
+  {"Id": 3, "Bezeichnung": "OG 203", "Stock": 2, "EDV": false},
+  {"Id": 4, "Bezeichnung": "OG 204", "Stock": 2, "EDV": false},
+  {"Id": 5, "Bezeichnung": "OG 105", "Stock": 1, "EDV": true},
+  {"Id": 6, "Bezeichnung": "EG 006", "Stock": 0, "EDV": true},
+  {"Id": 7, "Bezeichnung": "EG 007", "Stock": 0, "EDV": true},
+  {"Id": 8, "Bezeichnung": "EG 008", "Stock": 0, "EDV": true},
+  {"Id": 9, "Bezeichnung": "OG 109", "Stock": 1, "EDV": false}
+]
