@@ -19,6 +19,7 @@ const Roles = {
 const IsInRole = (rolesToCheckAgainst) => {
     const {keycloak, initialized} = useKeycloak()
 
+<<<<<<< HEAD
     console.log("Cheking roles", rolesToCheckAgainst)
 
     if(!Object.keys(Roles).some((role) => rolesToCheckAgainst.includes(role))) 
@@ -33,6 +34,13 @@ const IsInRole = (rolesToCheckAgainst) => {
     return keycloak.tokenParsed.roles.some(
         (role) => rolesToCheckAgainst.includes(role)
     );
+=======
+    if(!Object.keys(Roles).some((role) => rolesToCheckAgainst.includes(role))) return false;
+    if(!initialized) return false;
+    if(!keycloak.authenticated) return false;
+
+    keycloak.tokenParsed.roles.intersects(rolesToCheckAgainst);
+>>>>>>> upstream/main
 }
 
 export {Roles, IsInRole};
