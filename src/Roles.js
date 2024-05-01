@@ -19,6 +19,7 @@ const Roles = {
 const IsInRole = (rolesToCheckAgainst) => {
     const {keycloak, initialized} = useKeycloak()
 
+
     console.log("Cheking roles", rolesToCheckAgainst)
 
     if(!Object.keys(Roles).some((role) => rolesToCheckAgainst.includes(role))) 

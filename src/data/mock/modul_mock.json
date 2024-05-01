@@ -1,0 +1,6 @@
+[
+  {"Id": 1, "Bezeichnung": "M106", "AnzahlLektionen": 40, "LinkZuBaukasten": "https://www.modulbaukasten.ch/module/106"},
+  {"Id": 2, "Bezeichnung": "M322", "AnzahlLektionen": 40, "LinkZuBaukasten": "https://www.modulbaukasten.ch/module/322"},
+  {"Id": 3, "Bezeichnung": "M294", "AnzahlLektionen": 40, "LinkZuBaukasten": "https://www.modulbaukasten.ch/module/294"},
+  {"Id": 4, "Bezeichnung": "M295", "AnzahlLektionen": 40, "LinkZuBaukasten": "https://www.modulbaukasten.ch/module/295"}
+]
