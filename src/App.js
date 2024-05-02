@@ -15,6 +15,7 @@ const App = () => {
                 <Routes>
                     <Route element={<PageLayout/>} path={"/"}>
                         {MappedRoutes()}
+                        <Route element={<span>Nothing here</span>} path={"*"}/>
                     </Route>
                 </Routes>
             </div>
@@ -27,7 +28,7 @@ const MappedRoutes = () => {
     return (
         <>
             {
-                RouteConfigs.map((route, index) => (
+                RouteConfigs.map((route :{...}, index: number) => (
                     <Route
                         key={index}
                         path={route.path}
