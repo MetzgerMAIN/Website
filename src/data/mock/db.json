@@ -1,0 +1,476 @@
+{
+  "dozent": [
+    {
+      "id": 1,
+      "Name": "Mariejeanne Ianinotti",
+      "PLZ": 7318,
+      "WochenstundenMax": 9
+    },
+    {
+      "id": 2,
+      "Name": "Nicko Petrillo",
+      "PLZ": 4165,
+      "WochenstundenMax": 22
+    },
+    {
+      "id": 3,
+      "Name": "Almeria Rickards",
+      "PLZ": 7555,
+      "WochenstundenMax": 22
+    },
+    {
+      "id": 4,
+      "Name": "Zacharie Rapsey",
+      "PLZ": 6065,
+      "WochenstundenMax": 25
+    },
+    {
+      "id": 5,
+      "Name": "Mattie Matuszyk",
+      "PLZ": 5588,
+      "WochenstundenMax": 9
+    },
+    {
+      "id": 6,
+      "Name": "Domini Sigmund",
+      "PLZ": 5177,
+      "WochenstundenMax": 13
+    },
+    {
+      "id": 7,
+      "Name": "Karolina Darridon",
+      "PLZ": 6810,
+      "WochenstundenMax": 18
+    },
+    {
+      "id": 8,
+      "Name": "Thedric Kloss",
+      "PLZ": 6047,
+      "WochenstundenMax": 11
+    },
+    {
+      "id": 9,
+      "Name": "Lindi Cooley",
+      "PLZ": 6980,
+      "WochenstundenMax": 24
+    },
+    {
+      "id": 10,
+      "Name": "Chrisy Antonioni",
+      "PLZ": 7829,
+      "WochenstundenMax": 17
+    },
+    {
+      "id": 11,
+      "Name": "Moira Spearman",
+      "PLZ": 7490,
+      "WochenstundenMax": 8
+    },
+    {
+      "id": 12,
+      "Name": "Thebault Whyman",
+      "PLZ": 7059,
+      "WochenstundenMax": 10
+    },
+    {
+      "id": 13,
+      "Name": "Gav Sawfoot",
+      "PLZ": 7862,
+      "WochenstundenMax": 25
+    },
+    {
+      "id": 14,
+      "Name": "Kikelia Smerdon",
+      "PLZ": 5487,
+      "WochenstundenMax": 22
+    },
+    {
+      "id": 15,
+      "Name": "Faith Knightsbridge",
+      "PLZ": 6583,
+      "WochenstundenMax": 21
+    },
+    {
+      "id": 16,
+      "Name": "Karly Howsam",
+      "PLZ": 5173,
+      "WochenstundenMax": 25
+    },
+    {
+      "id": 17,
+      "Name": "Hill Willoughby",
+      "PLZ": 4016,
+      "WochenstundenMax": 9
+    },
+    {
+      "id": 18,
+      "Name": "Octavia Janjusevic",
+      "PLZ": 5503,
+      "WochenstundenMax": 16
+    },
+    {
+      "id": 19,
+      "Name": "Ester Ternent",
+      "PLZ": 6602,
+      "WochenstundenMax": 22
+    },
+    {
+      "id": 20,
+      "Name": "Floyd Yesipov",
+      "PLZ": 6994,
+      "WochenstundenMax": 23
+    }
+  ],
+  "klasse": [
+    {
+      "id": 1,
+      "Bezeichnung": "ITB 1c",
+      "MaxAnzahlSchueler": 20,
+      "Jahr": 1
+    },
+    {
+      "id": 2,
+      "Bezeichnung": "ITB 1d",
+      "MaxAnzahlSchueler": 22,
+      "Jahr": 1
+    },
+    {
+      "id": 3,
+      "Bezeichnung": "ITB 1a",
+      "MaxAnzahlSchueler": 17,
+      "Jahr": 1
+    },
+    {
+      "id": 4,
+      "Bezeichnung": "ITB 2c",
+      "MaxAnzahlSchueler": 25,
+      "Jahr": 2
+    }
+  ],
+  "mitarbeiter": [
+    {
+      "id": 1,
+      "Name": "Janene Lakes",
+      "PLZ": 4537,
+      "Abteilung": "EDV"
+    },
+    {
+      "id": 2,
+      "Name": "Trixie Fawthorpe",
+      "PLZ": 7826,
+      "Abteilung": "Beratung"
+    },
+    {
+      "id": 3,
+      "Name": "Ana Franklyn",
+      "PLZ": 7252,
+      "Abteilung": "Einkauf"
+    },
+    {
+      "id": 4,
+      "Name": "Angele Worshall",
+      "PLZ": 6998,
+      "Abteilung": "Reinigung"
+    },
+    {
+      "id": 5,
+      "Name": "Beck Willingam",
+      "PLZ": 4980,
+      "Abteilung": "EDV"
+    },
+    {
+      "id": 6,
+      "Name": "Sonya Wynne",
+      "PLZ": 5912,
+      "Abteilung": "Administration"
+    },
+    {
+      "id": 7,
+      "Name": "Jesse Kelling",
+      "PLZ": 7432,
+      "Abteilung": "Einkauf"
+    },
+    {
+      "id": 8,
+      "Name": "Broderick Tavner",
+      "PLZ": 5573,
+      "Abteilung": "Beratung"
+    },
+    {
+      "id": 9,
+      "Name": "Collette Breinl",
+      "PLZ": 7305,
+      "Abteilung": "Reinigung"
+    },
+    {
+      "id": 10,
+      "Name": "Jacintha McKelvie",
+      "PLZ": 7238,
+      "Abteilung": "EDV"
+    },
+    {
+      "id": 11,
+      "Name": "Greer Steinson",
+      "PLZ": 4283,
+      "Abteilung": "EDV"
+    },
+    {
+      "id": 12,
+      "Name": "Theresina McAllan",
+      "PLZ": 7473,
+      "Abteilung": "Einkauf"
+    },
+    {
+      "id": 13,
+      "Name": "Forster Halpeine",
+      "PLZ": 6537,
+      "Abteilung": "Einkauf"
+    },
+    {
+      "id": 14,
+      "Name": "Roberto Barracks",
+      "PLZ": 5726,
+      "Abteilung": "Beratung"
+    },
+    {
+      "id": 15,
+      "Name": "Bonny Hordle",
+      "PLZ": 5027,
+      "Abteilung": "Beratung"
+    },
+    {
+      "id": 16,
+      "Name": "Addi Galliard",
+      "PLZ": 6440,
+      "Abteilung": "Beratung"
+    },
+    {
+      "id": 17,
+      "Name": "Henka Fennell",
+      "PLZ": 6239,
+      "Abteilung": "EDV"
+    },
+    {
+      "id": 18,
+      "Name": "Glenden Stud",
+      "PLZ": 6153,
+      "Abteilung": "Administration"
+    },
+    {
+      "id": 19,
+      "Name": "Carroll Napier",
+      "PLZ": 4647,
+      "Abteilung": "Administration"
+    },
+    {
+      "id": 20,
+      "Name": "Broddy Monson",
+      "PLZ": 5793,
+      "Abteilung": "Beratung"
+    }
+  ],
+  "modul": [
+    {
+      "id": 1,
+      "Bezeichnung": "M106",
+      "AnzahlLektionen": 40,
+      "LinkZuBaukasten": "https://www.modulbaukasten.ch/module/106"
+    },
+    {
+      "id": 2,
+      "Bezeichnung": "M322",
+      "AnzahlLektionen": 40,
+      "LinkZuBaukasten": "https://www.modulbaukasten.ch/module/322"
+    },
+    {
+      "id": 3,
+      "Bezeichnung": "M294",
+      "AnzahlLektionen": 40,
+      "LinkZuBaukasten": "https://www.modulbaukasten.ch/module/294"
+    },
+    {
+      "id": 4,
+      "Bezeichnung": "M295",
+      "AnzahlLektionen": 40,
+      "LinkZuBaukasten": "https://www.modulbaukasten.ch/module/295"
+    }
+  ],
+  "raum": [
+    {
+      "id": 1,
+      "Bezeichnung": "OG 101",
+      "Stock": 1,
+      "EDV": true
+    },
+    {
+      "id": 2,
+      "Bezeichnung": "OG 202",
+      "Stock": 2,
+      "EDV": false
+    },
+    {
+      "id": 3,
+      "Bezeichnung": "OG 203",
+      "Stock": 2,
+      "EDV": false
+    },
+    {
+      "id": 4,
+      "Bezeichnung": "OG 204",
+      "Stock": 2,
+      "EDV": false
+    },
+    {
+      "id": 5,
+      "Bezeichnung": "OG 105",
+      "Stock": 1,
+      "EDV": true
+    },
+    {
+      "id": 6,
+      "Bezeichnung": "EG 006",
+      "Stock": 0,
+      "EDV": true
+    },
+    {
+      "id": 7,
+      "Bezeichnung": "EG 007",
+      "Stock": 0,
+      "EDV": true
+    },
+    {
+      "id": 8,
+      "Bezeichnung": "EG 008",
+      "Stock": 0,
+      "EDV": true
+    },
+    {
+      "id": 9,
+      "Bezeichnung": "OG 109",
+      "Stock": 1,
+      "EDV": false
+    }
+  ],
+  "schueler": [
+    {
+      "id": 1,
+      "Name": "Morse Micah",
+      "Geburtsdatum": "15.09.1996",
+      "PLZ": 6025
+    },
+    {
+      "id": 2,
+      "Name": "Candy Bucktharp",
+      "Geburtsdatum": "21.12.2004",
+      "PLZ": 7553
+    },
+    {
+      "id": 3,
+      "Name": "Sonni Batie",
+      "Geburtsdatum": "24.12.1992",
+      "PLZ": 6591
+    },
+    {
+      "id": 4,
+      "Name": "Margaux Higgonet",
+      "Geburtsdatum": "08.10.1992",
+      "PLZ": 7463
+    },
+    {
+      "id": 5,
+      "Name": "Tabbitha Hedditeh",
+      "Geburtsdatum": "08.12.1992",
+      "PLZ": 5423
+    },
+    {
+      "id": 6,
+      "Name": "Abrahan Abrahamowitcz",
+      "Geburtsdatum": "09.04.2004",
+      "PLZ": 4319
+    },
+    {
+      "id": 7,
+      "Name": "Tiphani Philp",
+      "Geburtsdatum": "17.02.2004",
+      "PLZ": 4696
+    },
+    {
+      "id": 8,
+      "Name": "Morena Haith",
+      "Geburtsdatum": "26.07.1990",
+      "PLZ": 5135
+    },
+    {
+      "id": 9,
+      "Name": "Judy Hutchinson",
+      "Geburtsdatum": "12.02.2001",
+      "PLZ": 7435
+    },
+    {
+      "id": 10,
+      "Name": "Wilow Iwanowski",
+      "Geburtsdatum": "13.05.1995",
+      "PLZ": 7784
+    },
+    {
+      "id": 11,
+      "Name": "Filia Olsson",
+      "Geburtsdatum": "05.04.1995",
+      "PLZ": 7895
+    },
+    {
+      "id": 12,
+      "Name": "Karrah Surphliss",
+      "Geburtsdatum": "21.06.1990",
+      "PLZ": 5924
+    },
+    {
+      "id": 13,
+      "Name": "Ezechiel Milnes",
+      "Geburtsdatum": "20.11.1990",
+      "PLZ": 4823
+    },
+    {
+      "id": 14,
+      "Name": "Etti Osant",
+      "Geburtsdatum": "23.10.1998",
+      "PLZ": 7474
+    },
+    {
+      "id": 15,
+      "Name": "Vera Rickett",
+      "Geburtsdatum": "22.03.2000",
+      "PLZ": 7071
+    },
+    {
+      "id": 16,
+      "Name": "Kessia Padly",
+      "Geburtsdatum": "07.02.2002",
+      "PLZ": 6781
+    },
+    {
+      "id": 17,
+      "Name": "Wynne Walch",
+      "Geburtsdatum": "23.11.1992",
+      "PLZ": 7410
+    },
+    {
+      "id": 18,
+      "Name": "Fenelia Kalaher",
+      "Geburtsdatum": "11.10.2000",
+      "PLZ": 4402
+    },
+    {
+      "id": 19,
+      "Name": "Zarla Twittey",
+      "Geburtsdatum": "01.07.2003",
+      "PLZ": 6163
+    },
+    {
+      "id": 20,
+      "Name": "Lyndsey Fromant",
+      "Geburtsdatum": "16.06.2001",
+      "PLZ": 4305
+    }
+  ]
+}

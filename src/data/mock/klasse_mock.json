@@ -1,6 +1,6 @@
 [
-  {"Id": 1, "Bezeichnung": "ITB 1c", "MaxAnzahlSchueler": 20, "Jahr": 1},
-  {"Id": 2, "Bezeichnung": "ITB 1d", "MaxAnzahlSchueler": 22, "Jahr": 1},
-  {"Id": 3, "Bezeichnung": "ITB 1a", "MaxAnzahlSchueler": 17, "Jahr": 1},
-  {"Id": 4, "Bezeichnung": "ITB 2c", "MaxAnzahlSchueler": 25, "Jahr": 2}
+  {"id": 1, "Bezeichnung": "ITB 1c", "MaxAnzahlSchueler": 20, "Jahr": 1},
+  {"id": 2, "Bezeichnung": "ITB 1d", "MaxAnzahlSchueler": 22, "Jahr": 1},
+  {"id": 3, "Bezeichnung": "ITB 1a", "MaxAnzahlSchueler": 17, "Jahr": 1},
+  {"id": 4, "Bezeichnung": "ITB 2c", "MaxAnzahlSchueler": 25, "Jahr": 2}
 ]
