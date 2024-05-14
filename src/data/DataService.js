@@ -339,4 +339,5 @@ const endpointMitarbeiter = 'http://localhost:8000/mitarbeiter';
 const endpointModul = 'http://localhost:8000/modul';
 const endpointRaum = 'http://localhost:8000/raum';
 
-export {SchuelerService, DozentService, RaumService, MitarbeiterService, ModulService, KlasseService}
+export {SchuelerService, DozentService, ModulService, RaumService, KlasseService, MitarbeiterService };
+
