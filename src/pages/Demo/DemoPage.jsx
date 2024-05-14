@@ -1,75 +1,160 @@
 import React, {useEffect, useState} from "react";
-import {IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
-import {SchuelerDataService} from "../../data/DataService";
+import {useKeycloak} from "@react-keycloak/web";
+import {
+    Button,
+    IconButton,
+    Paper,
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow, TextField
+} from "@mui/material";
+import DeleteOutlined from '@mui/icons-material/DeleteOutline'
 import EditIcon from '@mui/icons-material/Edit';
-import {toast, ToastContainer} from "react-toastify";
+import {SchuelerService} from "../../data/DataService";
+import JsonView from "@uiw/react-json-view";
+import {toast} from "react-toastify";
+import {key} from "localforage";
+import schueler from "../Schueler/Schueler";
 
 const DemoPage = () => {
-    const [schueler, setSchueler] = useState(null);
-    const [schuelerToEdit, setSchuelerToEdit] = useState(null);
+    const {keycloak, initialized} = useKeycloak();
+    const [schuelerData, setSchuelerData] = useState(null);
+    const [schuelerEditData, setSchuelerEditData] = useState({
+        id: 0,
+        Name: "",
+        Geburtsdatum: "",
+        PLZ: ""
+    })
 
-    // Wird immer beim Laden der Component ausgeführt
+
     useEffect(() => {
-        loadSchueler();
-    }, []); // Dependency Array ist leer
+        getSchueler().then(() => toast("Fetched Schueler", {type: "success"}));
+    }, []);
 
-    // Wird bei jeder Änderung von State "schuelerToEdit" ausgeführt
-    useEffect(() => {
-        console.log("schueler changed")
-    }, [schuelerToEdit]) // Dependency Array zeigt Abhängigkeit von schuelerToEdit
-
-    /**
-     * Loads Schueler Collection and sets the state schueler
-     * @returns {Promise<void>}
-     */
-    async function loadSchueler() {
-        setTimeout(() => {
-            setSchueler(SchuelerDataService.fetchAll());
-        }, 3000)
+    async function getSchueler() {
+        SchuelerService.getAll().then(data => setSchuelerData(data))
     }
 
-    console.log("Rendering Component Demo")
+    if (!initialized)
+        return "Loading ...";
+
+    let buttonText;
+
+    // Ternary Operator
+    buttonText = keycloak.authenticated ? "Logout" : "Login";
+
+    const handleButtonClick = () => {
+        if (keycloak.authenticated) {
+            keycloak.logout();
+        } else {
+            keycloak.login();
+        }
+    }
+
+    function handleDeleteSchueler(id) {
+        toast(`Schueler ${id} requested for deletion`, {type: "info"})
+        SchuelerService.delete(id).then(() => getSchueler());
+    }
+
+    function handleFormChange(key, value) {
+        setSchuelerEditData({
+            ...schuelerEditData,
+            [key]: value
+        })
+    }
+
+    function handleFormSave() {
+        if (schuelerEditData.Name && schuelerEditData.Geburtsdatum && schuelerEditData.PLZ) {
+            if(schuelerEditData.id)
+            {
+                SchuelerService.put(schuelerEditData.id, schuelerEditData).then(() => {
+                    getSchueler();
+                    toast("Schueler updated successfully", {type: "success"});
+                    setSchuelerEditData({
+                        id: 0,
+                        Name: "",
+                        Geburtsdatum: "",
+                        PLZ: ""
+                    })
+                }).catch((error) => toast("Could not update Schueler: " + error.message, {type: "error"}))
+            }
+            else {
+                SchuelerService.post(schuelerEditData).then(() => {
+                    getSchueler();
+                    toast("Schueler inserted successfully", {type: "success"});
+                    setSchuelerEditData({
+                        id: 0,
+                        Name: "",
+                        Geburtsdatum: "",
+                        PLZ: ""
+                    })
+                }).catch((error) => toast("Could not insert Schueler: " + error.message, {type: "error"}));
+            }
+        }
+    }
 
     function handleEditSchueler(id) {
-        let schuelerObj = SchuelerDataService.fetchById(id)
-        toast.success(`Schueler To Edit: ${schuelerObj.Name}`)
-        setSchuelerToEdit(schuelerObj);
+        SchuelerService.get(id).then(data => setSchuelerEditData(data));
     }
 
     return (
         <>
-            <h1>Demo</h1>
-            <TableContainer component={Paper}>
-                <Table sx={{minWidth: 650}} aria-label="simple table">
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>ID</TableCell>
-                            <TableCell>Name</TableCell>
-                            <TableCell>Geburtsdatum</TableCell>
-                            <TableCell>PLZ</TableCell>
-                            <TableCell>Actions</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {
-                            schueler == null ? <TableRow><TableCell>Loading</TableCell></TableRow>
-                                : schueler.map((item, index) => (
-                                    <TableRow hover key={item.Id}>
-                                        <TableCell>{item.Id}</TableCell>
-                                        <TableCell>{item.Name}</TableCell>
-                                        <TableCell>{item.Geburtsdatum}</TableCell>
-                                        <TableCell>{item.PLZ}</TableCell>
+            <h1>Demo Keycloak</h1>
+            <Button variant="contained" color="primary" onClick={handleButtonClick}>{buttonText}</Button>
+            <p>Is Keycloak Authenticated: <b>{keycloak.authenticated.toString()}</b></p>
+
+            <div style={{marginBlock: ".5em", padding: "2em", border: "solid 1px gray", borderRadius: "5px"}}>
+                <TextField label="Name" value={schuelerEditData.Name}
+                           onChange={(event) => handleFormChange("Name", event.target.value)}
+                           variant="outlined" size={"small"}/>
+                <TextField label="Geburtsdatum" value={schuelerEditData.Geburtsdatum}
+                           onChange={(event) => handleFormChange("Geburtsdatum", event.target.value)}
+                           variant="outlined" size={"small"}/>
+                <TextField label="PLZ" value={schuelerEditData.PLZ}
+                           onChange={(event) => handleFormChange("PLZ", event.target.value)}
+                           variant="outlined" size={"small"}/>
+                <Button variant={"contained"} color={"success"} onClick={handleFormSave}>Speichern</Button>
+                <JsonView value={schuelerEditData}/>
+            </div>
+
+            {
+                schuelerData && (
+                    <TableContainer component={Paper}>
+                        <Table size={"small"}>
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>ID</TableCell>
+                                    <TableCell>Name</TableCell>
+                                    <TableCell>Geburtsdatum</TableCell>
+                                    <TableCell>PLZ</TableCell>
+                                    <TableCell>Actions</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {schuelerData.map((schueler) => (
+                                    <TableRow key={schueler.id}>
+                                        <TableCell>{schueler.id}</TableCell>
+                                        <TableCell>{schueler.Name}</TableCell>
+                                        <TableCell>{schueler.Geburtsdatum}</TableCell>
+                                        <TableCell>{schueler.PLZ}</TableCell>
                                         <TableCell>
-                                            <IconButton onClick={() => handleEditSchueler(item.Id)}>
-                                                <EditIcon />
+                                            <IconButton color={"error"} onClick={() => handleDeleteSchueler(schueler.id)}>
+                                                <DeleteOutlined/>
+                                            </IconButton>
+                                            <IconButton color={"primary"} onClick={() => handleEditSchueler(schueler.id)}>
+                                                <EditIcon/>
                                             </IconButton>
                                         </TableCell>
                                     </TableRow>
-                                ))
-                        }
-                    </TableBody>
-                </Table>
-            </TableContainer>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                )
+            }
         </>
     );
 }
