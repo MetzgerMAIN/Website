@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import EditIcon from '@mui/icons-material/Edit';
 import { toast, ToastContainer } from "react-toastify";
-import { RaumDataService } from "../../data/DataService";
+import { RaumService } from "../../data/DataService.js";
 
 const RaeumePage = () => {
     const [raeume, setRaeume] = useState(null);
@@ -20,12 +20,12 @@ const RaeumePage = () => {
 
     async function loadRaeume() {
         setTimeout(() => {
-            setRaeume(RaumDataService.fetchAll());
+            setRaeume(RaumService.fetchAll());
         }, 3000);
     }
 
     function handleEditRaum(id) {
-        let raumObj = RaumDataService.fetchById(id);
+        let raumObj = RaumService.fetchById(id);
         if (raumObj) {
             toast.success(`Raum To Edit: ${raumObj.Bezeichnung}`);
             setRaumToEdit(raumObj);
