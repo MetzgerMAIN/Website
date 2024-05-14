@@ -122,60 +122,84 @@ const mockData = [
     "PLZ": 4305
   }
 ];
-
 const Schueler = () => {
-  const [schuelerList, setSchuelerList] = useState(mockData);
-  const [newSchueler, setNewSchueler] = useState({ id: '', Name: '', Geburtsdatum: '', PLZ: '' });
-
-  const handleAdd = () => {
-    setSchuelerList([...schuelerList, newSchueler]);
-    setNewSchueler({ id: '', Name: '', Geburtsdatum: '', PLZ: '' });
+    const [schuelerList, setSchuelerList] = useState(mockData);
+    const [newSchueler, setNewSchueler] = useState({ id: '', Name: '', Geburtsdatum: '', PLZ: '' });
+    const [isEditing, setIsEditing] = useState(false);
+    const [editId, setEditId] = useState(null);
+  
+    const handleAdd = () => {
+      setSchuelerList([...schuelerList, newSchueler]);
+      setNewSchueler({ id: '', Name: '', Geburtsdatum: '', PLZ: '' });
+    };
+  
+    const handleDelete = (id) => {
+      setSchuelerList(schuelerList.filter(schueler => schueler.id !== id));
+    };
+  
+    const handleEdit = (id) => {
+      const schuelerToEdit = schuelerList.find(schueler => schueler.id === id);
+      setNewSchueler(schuelerToEdit);
+      setIsEditing(true);
+      setEditId(id);
+    };
+  
+    const handleUpdate = () => {
+      const updatedList = schuelerList.map(schueler => {
+        if (schueler.id === editId) {
+          return newSchueler;
+        }
+        return schueler;
+      });
+      setSchuelerList(updatedList);
+      setNewSchueler({ id: '', Name: '', Geburtsdatum: '', PLZ: '' });
+      setIsEditing(false);
+      setEditId(null);
+    };
+  
+    const handleChange = (e) => {
+      const { name, value } = e.target;
+      setNewSchueler({ ...newSchueler, [name]: value });
+    };
+  
+    return (
+      <div>
+        <h1>Schüler Liste</h1>
+        <ul>
+          {schuelerList.map(schueler => (
+            <li key={schueler.id}>
+              {schueler.Name} - {schueler.Geburtsdatum} - {schueler.PLZ}
+              <button onClick={() => handleEdit(schueler.id)}>Bearbeiten</button>
+              <button onClick={() => handleDelete(schueler.id)}>Löschen</button>
+            </li>
+          ))}
+        </ul>
+        <input
+          type="text"
+          placeholder="Name"
+          name="Name"
+          value={newSchueler.Name}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          placeholder="Geburtsdatum"
+          name="Geburtsdatum"
+          value={newSchueler.Geburtsdatum}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          placeholder="PLZ"
+          name="PLZ"
+          value={newSchueler.PLZ}
+          onChange={handleChange}
+        />
+        <button onClick={isEditing ? handleUpdate : handleAdd}>
+          {isEditing ? 'Aktualisieren' : 'Hinzufügen'}
+        </button>
+      </div>
+    );
   };
-
-  const handleDelete = (id) => {
-    setSchuelerList(schuelerList.filter(schueler => schueler.id !== id));
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setNewSchueler({ ...newSchueler, [name]: value });
-  };
-
-  return (
-    <div>
-      <h1>Schüler Liste</h1>
-      <ul>
-        {schuelerList.map(schueler => (
-          <li key={schueler.id}>
-            {schueler.Name} - {schueler.Geburtsdatum} - {schueler.PLZ}
-            <button onClick={() => handleDelete(schueler.id)}>Löschen</button>
-          </li>
-        ))}
-      </ul>
-      <input
-        type="text"
-        placeholder="Name"
-        name="Name"
-        value={newSchueler.Name}
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        placeholder="Geburtsdatum"
-        name="Geburtsdatum"
-        value={newSchueler.Geburtsdatum}
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        placeholder="PLZ"
-        name="PLZ"
-        value={newSchueler.PLZ}
-        onChange={handleChange}
-      />
-      <button onClick={handleAdd}>Hinzufügen</button>
-    </div>
-  );
-};
-
-export default Schueler;
+  
+  export default Schueler;
